@@ -1,0 +1,57 @@
+.login{
+    width: 40%;
+    text-align:center;
+    height: 50px;
+    padding: 10px;
+    background: rgb(118, 226, 234);
+    margin-top: 40px;
+    box-shadow: 5px 8px 8px rgb(185, 199, 165);
+    margin-left: 10px;
+    opacity: 80%;
+}
+
+.login_form{
+    float: right;
+    margin-top: 50px;
+    width: 100%;
+    background: rgb(234, 249, 230);
+    text-align: center;
+    padding: 10px;
+    height: 550px;
+    background: rgb(14, 40, 67);
+    background-repeat:no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.login_form input{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.main_box{
+    background: black;
+}
+
+.login_form a{
+    background: rgb(149, 150, 149);
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.login_form label{
+    background: rgb(149, 150, 149);
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.secondry{
+    margin-top: 90px;
+    width: 100%;
+    background: rgb(233, 246, 232);
+    opacity: 80%;
+    padding: 20px;
+    height: 400px;
+}
