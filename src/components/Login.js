@@ -92,6 +92,36 @@ const Login = () => {
       setStat(false)
     };
 
+      const [delState, setDelState] = useState(false)
+      const [delid, setDelId] = useState('')
+
+      function stat_delete(){
+        setDelState(!delState);
+      };
+
+      function stat_delete_false(){
+        setDelState(!delState);
+      };
+
+      const deleteData = async (e) => {
+        e.preventDefault();
+        try { 
+          const response = await fetch('http://127.0.0.1:5000/deleteitems', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({delid}),
+          });
+    
+          const data = await response.json();
+        
+        } catch (error) {
+          console.error('Error:', error);
+        }
+        stat_delete_false();
+        };
+
     // Add items
     const addData = async (e) => {
       e.preventDefault();
@@ -137,8 +167,16 @@ const Login = () => {
       </form>
   );
 
+  const del_data_form = (
+    <form onSubmit={deleteData}>
+        <label>id: {delid}</label>
+        <input type="id" value={delid} onChange={(e) => setDelId(e.target.value)} required />
+        <button type="submit">Submit</button>
+      </form>
+    );
 
 
+// ********************************* Login Signup ******************************
   const form = (
     <div>
     <div>
@@ -154,7 +192,6 @@ const Login = () => {
       </form>
       
     </div>
-
     <div>
       <p>Signup:</p>
     <form onSubmit={handleAddUser}>
@@ -184,6 +221,9 @@ const Login = () => {
 
   };
 
+
+
+  // ******************************  Home Form ********************************
   const home = (
     
       <div>
@@ -191,6 +231,7 @@ const Login = () => {
   
       <div>Welcome : {email}</div>
       <div>{stat ? add_data_form : <button onClick={change_stat}>Add</button>} </div>
+      <div>{delState ? del_data_form : <button onClick={stat_delete}>Delete</button>} </div>
       <div>Items : <button onClick={loaddata}>Load Items</button> </div>
       {items.items && items.items.map(items => {
             return(
@@ -214,7 +255,7 @@ const Login = () => {
   );
 
 
-
+// ******************************** Function Return **************************
   return (
     <div className="app">
     <div className="login-form">
